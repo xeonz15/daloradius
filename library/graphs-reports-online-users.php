@@ -44,22 +44,35 @@
     $res = $dbSocket->query($sql);
     $totalUsersOnline = $res->numRows();
 
+    // get total nas online
+    $sql = "SELECT count(UserName) FROM ".$configValues['CONFIG_DB_TBL_RADACCT']." WHERE (AcctStopTime is NULL OR AcctStopTime = '0000-00-00 00:00:00')";
+    $res = $dbSocket->query($sql);
+    $totalNasOnline = $res->fetchRow()[0];
+
+
     include('closedb.php');
 
     if ($totalUsers > 0) {
         $totalUsersOffline = $totalUsers - $totalUsersOnline;
         
-        $label1 = "offline users";
+        $label1 = "Offline Users";
         $value1 = intval($totalUsersOffline);
         $point1 = new Point($label1, $value1);
         $dataSet->addPoint($point1);
         
         if ($totalUsersOnline > 0) {
-            $label2 = "online users";
+            $label2 = "Online Users";
             $value2 = intval($totalUsersOnline);
             $point2 = new Point($label2, $value2);
             $dataSet->addPoint($point2);
         }
+        if ($totalNasOnline > 0) {
+            $label3 = "NAS Connections";
+            $value3 = intval($totalNasOnline);
+            $point3 = new Point($label3, $value3);
+            $dataSet->addPoint($point3);
+        }
+
     }
 
     header("Content-type: image/png");

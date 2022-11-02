@@ -28,17 +28,22 @@
     include('opendb.php');
     include('libchart/classes/libchart.php');
 
-    $chart = new VerticalBarChart(800, 600);
+    //$chart = new HorizontalBarChart(600, 1900);
     $dataSet = new XYDataSet();
 
     $sql = sprintf("SELECT n.shortname, COUNT(DISTINCT(ra.username))
                       FROM %s AS ra, %s AS n
                      WHERE n.nasname = ra.nasipaddress
                        AND (ra.acctstoptime IS NULL OR ra.acctstoptime = '0000-00-00 00:00:00')
-                     GROUP BY ra.nasipaddress",
+                     GROUP BY ra.nasipaddress order by shortname desc",
                    $configValues['CONFIG_DB_TBL_RADACCT'], $configValues['CONFIG_DB_TBL_RADNAS']);
 
     $res = $dbSocket->query($sql);
+
+    $totalNAS = $res->numRows();
+
+    $chart = new HorizontalBarChart(1200, 15*$totalNAS);
+
     while($row = $res->fetchRow()) {
         $value = intval($row[1]);
         $label = strval($row[0]);
