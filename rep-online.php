@@ -144,12 +144,10 @@
                    ra.acctinputoctets AS upload,
                    ra.acctoutputoctets AS download,
                    hs.name AS hotspot,
-                   rn.shortname AS nasshortname, 
-                   ui.firstname AS firstname,
-                   ui.lastname AS lastname
+                   rn.shortname AS nasshortname 
               FROM %s AS ra LEFT JOIN %s AS hs ON hs.mac=ra.calledstationid
-                            LEFT JOIN %s AS rn ON rn.nasname=ra.nasipaddress
-                            LEFT JOIN %s AS ui ON ra.username=ui.username";
+                            LEFT JOIN %s AS rn ON rn.nasname=ra.nasipaddress";
+                           // LEFT JOIN %s AS ui ON ra.username=ui.username";
                  
     $sql = sprintf($sql, $configValues['CONFIG_DB_TBL_RADACCT'],
                          $configValues['CONFIG_DB_TBL_DALOHOTSPOTS'],

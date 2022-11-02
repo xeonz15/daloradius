@@ -97,7 +97,7 @@
     
                     $label = $point->getX();
 
-                    $text->printText($img, $graphArea->x1 - 5, $y - $rowHeight / 2, $this->plot->getTextColor(), $label, $text->fontCondensed, $text->HORIZONTAL_RIGHT_ALIGN | $text->VERTICAL_CENTER_ALIGN);
+                    $text->printText($img, $graphArea->x1 - 55, $y - $rowHeight / 2, $this->plot->getTextColor(), $label, $text->fontCondensed, $text->HORIZONTAL_LEFT_ALIGN | $text->VERTICAL_CENTER_ALIGN);
                 }
             }
         }
