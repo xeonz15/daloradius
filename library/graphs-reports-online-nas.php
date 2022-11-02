@@ -31,7 +31,7 @@
     //$chart = new HorizontalBarChart(600, 1900);
     $dataSet = new XYDataSet();
 
-    $sql = sprintf("SELECT n.shortname, COUNT(DISTINCT(ra.username))
+    $sql = sprintf("SELECT n.shortname, COUNT(ra.username)
                       FROM %s AS ra, %s AS n
                      WHERE n.nasname = ra.nasipaddress
                        AND (ra.acctstoptime IS NULL OR ra.acctstoptime = '0000-00-00 00:00:00')
