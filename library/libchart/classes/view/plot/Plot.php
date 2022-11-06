@@ -194,14 +194,14 @@
                 $graphUnpaddedRight = $this->imageArea->x1 + ($this->imageArea->x2 - $this->imageArea->x1) * $this->graphCaptionRatio
                         + $this->graphPadding->left + $this->graphPadding->right;
                 $graphArea = new Rectangle(
-                        $this->imageArea->x1,
+                        $this->imageArea->x1+50,
                         $titleUnpaddedBottom,
                         $graphUnpaddedRight - 1,
                         $this->imageArea->y2
                 );
             } else {
                 $graphArea = new Rectangle(
-                        $this->imageArea->x1,
+                        $this->imageArea->x1+50,
                         $titleUnpaddedBottom,
                         $this->imageArea->x2,
                         $this->imageArea->y2
