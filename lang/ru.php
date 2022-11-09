@@ -73,6 +73,7 @@ $l['all']['UsedTime'] = "Использовано времени";
 $l['all']['Status'] = "Статус";
 $l['all']['Usage'] = "Использование";
 $l['all']['StartTime'] = "Начало";
+$l['all']['UpdateTime'] = "Обновление";
 $l['all']['StopTime'] = "Окончание";
 $l['all']['TotalTime'] = "Всего времени";
 $l['all']['Bytes'] = "Байт";

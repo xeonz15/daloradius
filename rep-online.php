@@ -80,10 +80,11 @@
     // - its value can be used for table headings presentation
     $cols = array(
                    'username' => t('all','Username'),
-                   t('all','Name'),
+                   //t('all','Name'),
                    'framedipaddress' => "Framed IP Address",
                    'calledstationid' => "Calling Station ID",
                    'acctstarttime' => t('all','StartTime'),
+                   'acctupdatetime' => t('all','UpdateTime'),
                    'acctsessiontime' => t('all','TotalTime'),
                    'hotspot' => t('all','HotSpot'),
                    'nasshortname' =>  t('all','NasShortname'),
@@ -137,6 +138,7 @@
                    ra.framedipaddress AS framedipaddress,
                    ra.callingstationid AS callingstationid,
                    ra.acctstarttime AS starttime,
+                   ra.acctupdatetime AS updatetime,
                    ra.acctsessiontime AS sessiontime,
                    ra.nasipaddress AS nasipaddress,
                    ra.calledstationid AS calledstationid,
@@ -230,6 +232,7 @@
                   . htmlspecialchars($row['lastname'], ENT_QUOTES, 'UTF-8');
             $callingstationid = htmlspecialchars($row['callingstationid'], ENT_QUOTES, 'UTF-8');
             $starttime = htmlspecialchars($row['starttime'], ENT_QUOTES, 'UTF-8');
+            $updatetime = htmlspecialchars($row['updatetime'], ENT_QUOTES, 'UTF-8');
             
             $totalTime = htmlspecialchars(time2str($row['sessiontime']), ENT_QUOTES, 'UTF-8');
             
@@ -262,10 +265,11 @@
                         <?= $this_username ?>
                     </a>
                 </td>
-                <td><?= $name ?></td>
+                <!--<td><?= $name ?></td>-->
                 <td><?= $this_framedip ?></td>
                 <td><?= $callingstationid ?></td>
                 <td><?= $starttime ?></td>
+                <td><?= $updatetime ?></td>
                 <td><?= $totalTime ?></td>
                 <td><?= (!empty($hotspot)) ? $hotspot : "(n/d)" ?></td>
                 <td><?= $nasshortname ?></td>
