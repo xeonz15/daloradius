@@ -153,7 +153,7 @@
             
             $onclick = 'javascript:return false;';
             
-            $checkbox_value = sprint("%s||%s", $nasipaddress, $nasportid);
+            $checkbox_value = sprintf("%s||%s", $nasipaddress, $nasportid);
 ?>
             <tr>
                 <td>
