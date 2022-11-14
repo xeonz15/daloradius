@@ -42,7 +42,7 @@
 
     $totalNAS = $res->numRows();
 
-    $chart = new HorizontalBarChart(1200, 15*$totalNAS);
+    $chart = new HorizontalBarChart(1200, 20*$totalNAS);
 
     while($row = $res->fetchRow()) {
         $value = intval($row[1]);
